@@ -1,7 +1,11 @@
 package com.songstadlindsey.travelplanner.model;
 
-import javax.persistence.*;
+import java.util.List;
 
+import javax.persistence.*;
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "user")
 public class User {
@@ -9,45 +13,18 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@Column(name = "fname")
+	@Column(name = "fname", nullable = false)
 	private String firstName;
 	
-	@Column(name = "lname")
-	private String lastName;
-
-	public User() {
-		
-	}
+	@Column(name = "lname", nullable = false)
+	private String lastName;	
 	
-	public User(String firstName, String lastName) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+	@Column(name = "email", nullable = false)
+	private String email;
 	
+	@Column(name = "password", nullable = false)
+	private String password;
 	
+	@ManyToMany(targetEntity = Trip.class)
+	private List<Trip> trips;
 }

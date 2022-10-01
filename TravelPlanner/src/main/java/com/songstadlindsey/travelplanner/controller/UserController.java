@@ -1,7 +1,5 @@
 package com.songstadlindsey.travelplanner.controller;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,6 +54,8 @@ public class UserController {
 		existingUser.setId(id);
 		existingUser.setFirstName(user.getFirstName());
 		existingUser.setLastName(user.getLastName());
+		existingUser.setEmail(user.getEmail());
+		existingUser.setPassword(user.getPassword());
 		
 		// save updated user object
 		userService.updateUser(existingUser);
