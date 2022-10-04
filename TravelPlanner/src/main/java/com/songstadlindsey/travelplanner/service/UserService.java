@@ -33,7 +33,6 @@ public class UserService implements UserServiceInterface {
 		return userRepository.findById(id).get();
 	}
 
-	// not finished
 	@Override
 	public User updateUser(User user) {
 		return userRepository.save(user);

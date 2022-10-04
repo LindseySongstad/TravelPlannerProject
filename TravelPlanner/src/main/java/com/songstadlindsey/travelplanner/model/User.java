@@ -19,12 +19,15 @@ public class User {
 	@Column(name = "lname", nullable = false)
 	private String lastName;	
 	
-	@Column(name = "email", nullable = false)
+	@Column(nullable = false)
 	private String email;
 	
-	@Column(name = "password", nullable = false)
+	@Column(nullable = false)
 	private String password;
 	
 	@ManyToMany(targetEntity = Trip.class)
 	private List<Trip> trips;
+	
+	@ManyToMany(targetEntity = Item.class)
+	private List<Item> possItems;
 }
