@@ -2,6 +2,7 @@ package com.songstadlindsey.travelplanner.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,6 +26,8 @@ public class Trip {
 	@Column(name = "days")
 	private Integer tripLength;
 	
-	@ManyToMany
+    @ManyToMany(cascade = {
+            CascadeType.ALL
+        })
 	private List<Item> Items;
 }
