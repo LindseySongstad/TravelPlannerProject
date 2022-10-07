@@ -19,11 +19,11 @@ public class UserController {
 		this.userService = userService;
 	}
 	
-	@GetMapping("/users")
-	public String listUsers(Model model) {
-		model.addAttribute("users", userService.getAllUsers());
-		return "users";
-	}
+//	@GetMapping("/users")
+//	public String listUsers(Model model) {
+//		model.addAttribute("users", userService.getAllUsers());
+//		return "users";
+//	}
 	
 	@GetMapping("/users/new")
 	public String createUserForm(Model model) {
@@ -32,11 +32,12 @@ public class UserController {
 		return "create_user";
 	}
 	
-	@PostMapping("/users")
-	public String saveUser(@ModelAttribute("user") User user) {
-		userService.saveUser(user);
-		return "redirect:/users";
-	}
+//	replaced in auth controller
+//	@PostMapping("/users")
+//	public String saveUser(@ModelAttribute("user") User user) {
+//		userService.saveUser(user);
+//		return "redirect:/users";
+//	}
 	
 	@GetMapping("/users/edit/{id}")
 	public String editUserForm(@PathVariable Long id, Model model) {

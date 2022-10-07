@@ -1,5 +1,6 @@
 package com.songstadlindsey.travelplanner.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -19,7 +20,7 @@ public class User {
 	@Column(name = "lname", nullable = false)
 	private String lastName;	
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique=true)
 	private String email;
 	
 	@Column(nullable = false)
@@ -30,4 +31,11 @@ public class User {
 	
 	@ManyToMany(targetEntity = Item.class)
 	private List<Item> possItems;
+	
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinTable(
+            name="users_roles",
+            joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
+            inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
+    private List<Role> roles = new ArrayList<>();
 }
