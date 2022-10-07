@@ -2,14 +2,8 @@ package com.songstadlindsey.travelplanner.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 import lombok.Data;
 
@@ -26,8 +20,15 @@ public class Trip {
 	@Column(name = "days")
 	private Integer tripLength;
 	
-    @ManyToMany(cascade = {
-            CascadeType.ALL
-        })
-	private List<Item> Items;
+    @ManyToMany( cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "trip_item",
+            joinColumns = {
+                @JoinColumn(name = "trip_id")
+            },
+            inverseJoinColumns = {
+                @JoinColumn(name = "item_id")
+            }
+        )
+	private List<Item> items;
 }
