@@ -25,12 +25,12 @@ public class UserController {
 //		return "users";
 //	}
 	
-	@GetMapping("/users/new")
-	public String createUserForm(Model model) {
-		User user = new User();
-		model.addAttribute("user", user);
-		return "create_user";
-	}
+//	@GetMapping("/users/new")
+//	public String createUserForm(Model model) {
+//		User user = new User();
+//		model.addAttribute("user", user);
+//		return "create_user";
+//	}
 	
 //	replaced in auth controller
 //	@PostMapping("/users")

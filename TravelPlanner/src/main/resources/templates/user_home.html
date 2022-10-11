@@ -14,19 +14,23 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/index}">Travel Planner</a>
+        <a class="navbar-brand" th:href="@{/user_home}">Travel Planner</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/register}">Register</a>
-                </li>
-               <li class="nav-item">
-                    <a class="nav-link" th:href="@{/login}">Login</a>
-                </li>
+
                 
+			    <li class="nav-item">
+			      <a class="nav-link" th:href="@{/trips}">My Trips</a>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" th:href="@{/items}">My Items</a>
+			    </li>
+			    <li class="nav-item">
+                    <a class="nav-link" th:href="@{/logout}">Logout</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -35,10 +39,14 @@
 <div class="container">
     <div class="row">
         <h1 class="text-center"> Travel Planner </h1>
-        <h3 class="text-center"> Please login or register </h3>
+    </div>
+    <div class="row">
+	<h4 class="text-center"> Welcome [[${user.getFirstName}]]!</h4>
+	<input th:value = ${user.getId}>
     </div>
 
-
+<!-- 		<span>[[${#request.remoteUser}]]</span>
+ <span sec:authentication="principal.fullName">Name</span>-->
 </div>
 </body>
 </html>

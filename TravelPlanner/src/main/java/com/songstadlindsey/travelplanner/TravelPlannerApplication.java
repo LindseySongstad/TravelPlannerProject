@@ -1,5 +1,7 @@
 package com.songstadlindsey.travelplanner;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,15 +21,22 @@ public class TravelPlannerApplication implements CommandLineRunner{
 
 	@Override
     public void run(String...args) throws Exception {
-//    	Trip trip = tripRepository.findById((long) 18).get();    	
-//    	System.out.print("Before Item");
-//    	System.out.print(trip);
-//    	Item item = new Item();
-//    	item.setId(21);
-//    	item.setCategory("Restaurant");
+//    	Trip trip = new Trip(); 
+//    	trip.setName("Test Trip");
 //    	
-//    	trip.getItems().add(item);
-//    	System.out.print("save trip");
+//    	Item item1 = new Item();
+//    	item1.setName("Star Brass");
+//    	item1.setCategory("Restaurant");
+//    	
+//    	Item item2 = new Item();
+//    	item2.setName("Perihelion");
+//    	item2.setCategory("Restaurant");
+//    	
+//    	List<Item> items = new ArrayList<Item>();
+//    	items.add(item1);
+//    	items.add(item2);
+//    	
+//    	trip.setItems(items);
 //    	tripRepository.save(trip);   	
     }
 	public static void main(String[] args) {

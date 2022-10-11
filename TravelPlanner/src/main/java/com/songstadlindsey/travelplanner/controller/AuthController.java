@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,6 +38,15 @@ public class AuthController {
     public String login(){
         return "login";
     }
+    
+    @GetMapping("/user_home")
+    public String userhome(@AuthenticationPrincipal UserDetails userDetails,
+            Model model){
+    	String email = userDetails.getUsername();
+    	User user = userService.findUserByEmail(email);
+    	model.addAttribute("user", user);
+        return "user_home";
+    }
 
     // handler method to handle user registration form request
     @GetMapping("/register")
@@ -64,7 +75,7 @@ public class AuthController {
         }
 
         userService.saveUser(userDto);
-        return "redirect:/register?success";
+        return "redirect:/login?success";
     }
 
     // handler method to handle list of users
