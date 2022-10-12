@@ -22,22 +22,22 @@ public class TravelPlannerApplication implements CommandLineRunner{
 	@Override
     public void run(String...args) throws Exception {
 //    	Trip trip = new Trip(); 
-//    	trip.setName("Test Trip");
+//    	trip.setName("Test Trip add items");
 //    	
 //    	Item item1 = new Item();
-//    	item1.setName("Star Brass");
-//    	item1.setCategory("Restaurant");
+//    	item1.setName("Lowercase");
+//    	item1.setCategory("Brewery");
 //    	
 //    	Item item2 = new Item();
-//    	item2.setName("Perihelion");
+//    	item2.setName("Jules Maes");
 //    	item2.setCategory("Restaurant");
 //    	
-//    	List<Item> items = new ArrayList<Item>();
-//    	items.add(item1);
-//    	items.add(item2);
 //    	
-//    	trip.setItems(items);
-//    	tripRepository.save(trip);   	
+//    	trip.addTripItem(item1);
+//    	trip.addTripItem(item2);
+//    	tripRepository.save(trip); 
+		
+		
     }
 	public static void main(String[] args) {
 		SpringApplication.run(TravelPlannerApplication.class, args);

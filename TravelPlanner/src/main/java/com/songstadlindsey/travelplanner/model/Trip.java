@@ -1,5 +1,6 @@
 package com.songstadlindsey.travelplanner.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -31,4 +32,11 @@ public class Trip {
             }
         )
 	private List<Item> items;
+    
+    public void addTripItem(Item item) {
+    	this.items.add(item);
+    }
+    public Trip() {
+    	this.items = new ArrayList<Item>();
+    }
 }

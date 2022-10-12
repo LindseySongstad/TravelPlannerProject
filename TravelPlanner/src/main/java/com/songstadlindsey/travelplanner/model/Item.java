@@ -34,8 +34,9 @@ public class Item {
 	@OneToOne
 	private Location location;
 
-	@ManyToMany( mappedBy = "items", cascade = { CascadeType.ALL })
-	 private List<Trip> trips;
+//  caused infinite loop when accessing, only need if bidirectional	
+//	@ManyToMany( mappedBy = "items", cascade = { CascadeType.ALL })
+//	 private List<Trip> trips;
 	
 }
 enum priority{
