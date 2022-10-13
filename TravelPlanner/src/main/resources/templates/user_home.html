@@ -17,12 +17,16 @@
         <h1 class="text-center"> Travel Planner </h1>
     </div>
     <div class="row">
-	<h4 class="text-center"> Welcome [[${user.getFirstName}]]!</h4>
-	<input th:value = ${user.getId}>
+		<h4 class="text-center"> Welcome <span sec:authentication="principal.fullName">Name</span>!</h4>	
     </div>
+    		<div class = "col-lg-3">
+				<a th:href = "@{/trips/new}" class = "btn btn-primary btn-sm mb-3"> Add Trip</a>
+			</div>
 
 <!-- 		<span>[[${#request.remoteUser}]]</span>
- <span sec:authentication="principal.fullName">Name</span>-->
+ <span sec:authentication="principal.fullName">Name</span>
+ 	<input th:value = ${user.getId}>
+ 	<h4 class="text-center"> Welcome [[${user.getFirstName}]]!</h4>-->
 </div>
 </body>
 </html>

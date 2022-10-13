@@ -75,7 +75,7 @@ public class TripController {
 	// post add trip item
 	@PostMapping("/trips/add/{id}")
 	public String saveItem(@PathVariable Long id,
-			@ModelAttribute("trip") Trip trip,
+		//	@ModelAttribute("trip") Trip trip,
 			@ModelAttribute("item") Item item,
 			Model model) {
 		Trip existingTrip = tripService.getTripById(id);

@@ -30,10 +30,6 @@ public class CustomUserDetails implements UserDetails{
     public String getFullName() {
         return this.user.getFirstName() + " " + this.user.getLastName();
     }
-    
-//    public void addTrip() {
-//    	this.user.getTrips().add(new Trip())
-//    }
 
     @Override
     public String getPassword() {
