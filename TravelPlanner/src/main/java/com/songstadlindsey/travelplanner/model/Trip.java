@@ -18,6 +18,8 @@ public class Trip {
 	
 	private String name;
 	
+	private long userId;
+	
 	@Column(name = "days")
 	private Integer tripLength;
 	

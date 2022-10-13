@@ -9,12 +9,15 @@
 	<div th:replace="fragments/navbar::navbar"></div>
 <br>
 <br>
+<!-- "@{/user/addtrip/{id} (id=${user.getId})}" -->
+ <span sec:authentication="principal.id">Name</span>
+  	<input th:value = ${user.getId}>
 	<div class = "container">
 		<div class = "row">
 			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
 				<h1 class = "text-center"> Create New Trip </h1>
 				<div class = "card-body">
-					<form th:action="@{/trips}" th:object = "${trip}" method="POST">
+					<form th:action="@{/trip/new/{userId} (userId=${user.getId})}" th:object = "${trip}" method="POST">
 						<div class ="form-group">
 							<label>  Name </label>
 							<input
@@ -28,7 +31,7 @@
 <!-- 						  TO DO -->
 <!-- 						 error handling on input -->
 						<div class ="form-group">
-							<label> Last Name </label>
+							<label> Trip Length </label>
 							<input
 							type = "text"
 							name = "tripLength"

@@ -12,7 +12,7 @@
 		<div class = "row">
 			<h1> Users </h1>
 		</div>
-		
+
 <!-- 		<div class = "row">
 			<div class = "col-lg-3">
 				<a th:href = "@{/users/new}" class = "btn btn-primary btn-sm mb-3"> Add User</a>
@@ -32,6 +32,7 @@
 				<tr th:each = "user: ${users}">
 					<td th:text = "${user.firstName}"></td>
 					<td th:text = "${user.lastName}"></td>
+					<td th:text = ${user.getId}></td>
 
 					<td>
 						<a th:href = "@{/users/edit/{id}(id=${user.id})}"

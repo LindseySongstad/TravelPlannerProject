@@ -42,4 +42,8 @@ public class TripService implements TripServiceInterface {
 	public void deleteTrip(long id) {
 		tripRepository.deleteById(id);
 	}
+	
+	public List<Trip> findUserTrips(Long userId){
+		return tripRepository.findUserTrips(userId);
+	};
 }

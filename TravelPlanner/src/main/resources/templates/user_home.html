@@ -19,9 +19,15 @@
     <div class="row">
 		<h4 class="text-center"> Welcome <span sec:authentication="principal.fullName">Name</span>!</h4>	
     </div>
-    		<div class = "col-lg-3">
-				<a th:href = "@{/trips/new}" class = "btn btn-primary btn-sm mb-3"> Add Trip</a>
-			</div>
+<!--     options -->
+    
+   	<div class = "col-lg-3">
+		<a th:href = "@{/users/edit/{id} (id=${user.getId})}" class = "btn btn-primary btn-sm mb-3"> Update your profile</a>
+	</div>
+	
+	<div class = "col-lg-3">
+		<a th:href = "@{/trip/new/{userId} (userId=${user.getId})}" class = "btn btn-primary btn-sm mb-3"> Add Trip</a>
+	</div>
 
 <!-- 		<span>[[${#request.remoteUser}]]</span>
  <span sec:authentication="principal.fullName">Name</span>
