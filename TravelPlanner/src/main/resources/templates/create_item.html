@@ -14,7 +14,7 @@
 			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
 				<h1 class = "text-center"> Create New Item </h1>
 				<div class = "card-body">
-					<form th:action="@{/trips/add/{id}(id=${trip.id})}" th:object = "${item}" method="POST">
+					<form th:action="@{/item/new/{tripId}(tripId=${trip.id})}" th:object = "${item}" method="POST">
 						<div class ="form-group">
 							<label>  Name </label>
 							<input

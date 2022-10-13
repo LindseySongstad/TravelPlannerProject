@@ -22,6 +22,8 @@ public class Item {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	private long userId;
+	
 	private String name;
 	
 	private String category;

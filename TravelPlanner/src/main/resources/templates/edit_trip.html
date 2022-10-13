@@ -18,7 +18,7 @@
 		<!-- add trip items  -->
 		<div class = "row">
 			<div class = "col-lg-3">
-				<a th:href = "@{/trips/add/{id}(id=${trip.id})}" class = "btn btn-primary btn-sm mb-3"> Add Item</a>
+				<a th:href = "@{/item/new/{tripId}(tripId=${trip.id})}" class = "btn btn-primary btn-sm mb-3"> Add Item</a>
 			</div>
 		</div>
 		<table class = "table table-striped table-bordered">

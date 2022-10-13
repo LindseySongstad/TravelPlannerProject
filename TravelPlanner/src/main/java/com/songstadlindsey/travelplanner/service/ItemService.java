@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.songstadlindsey.travelplanner.model.Item;
+import com.songstadlindsey.travelplanner.model.Trip;
 import com.songstadlindsey.travelplanner.repository.ItemRepository;
 import com.songstadlindsey.travelplanner.serviceinter.ItemServiceInterface;
 
@@ -42,4 +43,8 @@ public class ItemService implements ItemServiceInterface {
 	public void deleteItem(long id) {
 		itemRepository.deleteById(id);
 	}
+	
+	public List<Item> findUserItems(Long userId){
+		return itemRepository.findUserItems(userId);
+	};
 }

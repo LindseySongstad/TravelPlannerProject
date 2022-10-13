@@ -28,12 +28,7 @@ public class TripController {
 		this.tripService = tripService;
 		this.userService = userService;
 	}
-//	// list all trips
-//	@GetMapping("/trips")
-//	public String listTrips(Model model) {
-//		model.addAttribute("trips", tripService.getAllTrips());
-//		return "trips";
-//	}
+
 	// list user trips
 	@GetMapping("/trips")
 	public String listTrips(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
@@ -111,6 +106,12 @@ public class TripController {
 	}
 	
 	// without user
+//	// list all trips
+//	@GetMapping("/trips")
+//	public String listTrips(Model model) {
+//		model.addAttribute("trips", tripService.getAllTrips());
+//		return "trips";
+//	}
 //	// add new trip form
 //	@GetMapping("/trips/new")
 //	public String createTripForm(Model model) {
