@@ -9,6 +9,7 @@ import com.songstadlindsey.travelplanner.model.Item;
 
 
 public interface ItemRepository extends JpaRepository<Item, Long> {
-	  @Query(value = "SELECT * FROM item WHERE user_id = ?1", nativeQuery = true)
+	  // get items by user Id
+	@Query(value = "SELECT * FROM item WHERE user_id = ?1", nativeQuery = true)
 	  List<Item> findUserItems(Long userId);
 }

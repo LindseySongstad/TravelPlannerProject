@@ -2,22 +2,18 @@ package com.songstadlindsey.travelplanner.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.songstadlindsey.travelplanner.model.Item;
-import com.songstadlindsey.travelplanner.model.Trip;
 import com.songstadlindsey.travelplanner.repository.ItemRepository;
 import com.songstadlindsey.travelplanner.serviceinter.ItemServiceInterface;
 
 
 @Service
 public class ItemService implements ItemServiceInterface {
+	@Autowired
 	private ItemRepository itemRepository;
-	
-	public ItemService(ItemRepository itemRepository) {
-		super();
-		this.itemRepository = itemRepository;
-	}
 	
 	@Override
 	public Item saveItem(Item item) {
@@ -43,7 +39,7 @@ public class ItemService implements ItemServiceInterface {
 	public void deleteItem(long id) {
 		itemRepository.deleteById(id);
 	}
-	
+	@Override
 	public List<Item> findUserItems(Long userId){
 		return itemRepository.findUserItems(userId);
 	};

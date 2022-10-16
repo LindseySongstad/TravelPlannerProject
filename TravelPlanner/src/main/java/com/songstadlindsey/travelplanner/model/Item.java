@@ -12,6 +12,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.songstadlindsey.travelplanner.enums.Category;
+import com.songstadlindsey.travelplanner.enums.Priority;
+
 import lombok.Data;
 
 @Data
@@ -26,23 +29,27 @@ public class Item {
 	
 	private String name;
 	
-	private String category;
+	private Category category;
 	
-	private priority priority;
+//	private String category;
+	
+	private String details;
+	
+	private String address;
+	
+	private Priority priority;
 	
 	@Column(name = "day")
 	private Integer dayOfTrip;
 	
-	@OneToOne
-	private Location location;
+	
+//	@OneToOne
+//	private Location location;
 
-//  caused infinite loop when accessing, only need if bidirectional	
+
+//  caused infinite loop when accessing, only need if bidirectional	json ignore?
 //	@ManyToMany( mappedBy = "items", cascade = { CascadeType.ALL })
 //	 private List<Trip> trips;
 	
 }
-enum priority{
-	LOW,
-	MEDIUM,
-	HIGH
-}
+

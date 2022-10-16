@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-
+// user data transfer object
 @Data
 public class UserDto {
     private Long id;
@@ -12,9 +12,9 @@ public class UserDto {
     private String firstName;
     @NotEmpty
     private String lastName;
-    @NotEmpty(message = "Email should not be empty")
+    @NotEmpty(message = "Please enter email address")
     @Email
     private String email;
-    @NotEmpty(message = "Password should be empty")
+    @NotEmpty(message = "Please enter password")
     private String password;
 }

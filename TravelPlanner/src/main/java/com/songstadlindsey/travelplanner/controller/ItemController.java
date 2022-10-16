@@ -1,5 +1,6 @@
 package com.songstadlindsey.travelplanner.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,16 +15,15 @@ import com.songstadlindsey.travelplanner.security.CustomUserDetails;
 import com.songstadlindsey.travelplanner.service.ItemService;
 import com.songstadlindsey.travelplanner.service.TripService;
 
+// controller for Items
+
 @Controller
 public class ItemController {
+	@Autowired
 	private ItemService itemService;
+	@Autowired
 	private TripService tripService;
 	
-	public ItemController(ItemService itemService, TripService tripService) {
-		super();
-		this.itemService = itemService;
-		this.tripService = tripService;
-	}
 	// add trip item form
 	@GetMapping("/item/new/{tripId}")
 	public String addTripItemForm(@PathVariable Long tripId, Model model) {
@@ -69,12 +69,14 @@ public class ItemController {
 		existingItem.setId(id);
 		existingItem.setName(item.getName());
 		existingItem.setCategory(item.getCategory());
-		// TO DO
-		// finish attributes
+		existingItem.setAddress(item.getAddress());
+		existingItem.setDayOfTrip(item.getDayOfTrip());
+		existingItem.setDetails(item.getDetails());
+		existingItem.setPriority(item.getPriority());
 		
 		// save updated item object
 		itemService.updateItem(existingItem);
-		return "redirect:/items";		
+		return "redirect:/trips";		
 	}
 	// delete item
 	@GetMapping("/items/{id}")

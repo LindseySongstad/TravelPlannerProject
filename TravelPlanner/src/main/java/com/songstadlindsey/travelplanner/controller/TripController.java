@@ -1,5 +1,6 @@
 package com.songstadlindsey.travelplanner.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -17,17 +18,14 @@ import com.songstadlindsey.travelplanner.service.ItemService;
 import com.songstadlindsey.travelplanner.service.TripService;
 import com.songstadlindsey.travelplanner.service.UserService;
 
+// controller for trips
+
 @Controller
 public class TripController {
+	@Autowired
 	private TripService tripService;
+	@Autowired
 	private UserService userService;
-
-	
-	public TripController(TripService tripService, UserService userService) {
-		super();
-		this.tripService = tripService;
-		this.userService = userService;
-	}
 
 	// list user trips
 	@GetMapping("/trips")
@@ -35,6 +33,13 @@ public class TripController {
 		Long userId = userDetails.getId();
 		model.addAttribute("trips", tripService.findUserTrips(userId));
 		return "trips";
+	}
+	
+	// display trip
+	@GetMapping("/trips/display/{id}")
+	public String displayTrip(@PathVariable Long id, Model model) {
+		model.addAttribute("trip", tripService.getTripById(id));
+		return "display_trip";	
 	}
 
 	// edit trip form
@@ -60,25 +65,6 @@ public class TripController {
 		return "redirect:/trips";		
 	}
 	
-	// add trip item form
-	@GetMapping("/trips/add/{id}")
-	public String addTripItemForm(@PathVariable Long id, Model model) {
-		model.addAttribute("trip", tripService.getTripById(id));
-		Item item = new Item();
-		model.addAttribute("item", item);
-		return "create_item";	
-	}
-	// post add trip item
-	@PostMapping("/trips/add/{id}")
-	public String saveItem(@PathVariable Long id,
-			@ModelAttribute("item") Item item,
-			Model model) {
-		Trip existingTrip = tripService.getTripById(id);
-		existingTrip.setId(id);
-		existingTrip.addTripItem(item);
-		tripService.updateTrip(existingTrip);
-		return "redirect:/trips/edit/{id}";
-	}
 	// add user trip form
 	@GetMapping("/trip/new/{userId}")
 	public String addTripForm(@PathVariable Long userId, 

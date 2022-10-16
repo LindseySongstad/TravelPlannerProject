@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,10 @@ import com.songstadlindsey.travelplanner.serviceinter.UserServiceInterface;
 
 @Service
 public class UserService implements UserServiceInterface {
+	@Autowired
 	private UserRepository userRepository;
-    private RoleRepository roleRepository;
+	@Autowired
+	private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
 	
     public UserService(UserRepository userRepository,
@@ -29,15 +32,9 @@ public class UserService implements UserServiceInterface {
     	this.passwordEncoder = passwordEncoder;
     }
 	
-//	@Override
-//	public void saveUser(User user) {
-//		return userRepository.save(user);	
-//	}
-	
     @Override
     public void saveUser(UserDto userDto) {
         User user = new User();
-        //user.setName(userDto.getFirstName() + " " + userDto.getLastName());
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());
         user.setEmail(userDto.getEmail());

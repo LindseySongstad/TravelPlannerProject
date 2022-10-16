@@ -17,6 +17,7 @@ import com.songstadlindsey.travelplanner.dto.UserDto;
 import com.songstadlindsey.travelplanner.model.User;
 import com.songstadlindsey.travelplanner.service.UserService;
 
+// controller for login and registration
 
 @Controller
 public class AuthController {
@@ -26,7 +27,11 @@ public class AuthController {
     public AuthController(UserService userService) {
         this.userService = userService;
     }
-
+    @GetMapping("/error")
+    public String error() {
+    	return "error";
+    }
+    
     // handler method to handle home page request
     @GetMapping("/index")
     public String home(){

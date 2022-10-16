@@ -34,12 +34,14 @@
 					<td th:text = "${trip.tripLength}"></td>
 
 					<td>
+						<a th:href = "@{/trips/display/{id}(id=${trip.id})}"
+						 class = "btn btn-primary">View</a>
+						
 						<a th:href = "@{/trips/edit/{id}(id=${trip.id})}"
 						 class = "btn btn-primary">Update</a>
 						
 						<a th:href = "@{/trips/{id}(id=${trip.id})}"
 						 class = "btn btn-danger">Delete</a>
-						 
 					</td>
 				</tr>
 			</tbody>

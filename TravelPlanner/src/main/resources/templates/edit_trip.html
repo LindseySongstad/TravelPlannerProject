@@ -10,45 +10,8 @@
 
 <br>
 <br>
-<!-- Trip items list -->
-	<div class ="container">
-		<div class = "row">
-			<h1> Trip Items </h1>
-		</div>
-		<!-- add trip items  -->
-		<div class = "row">
-			<div class = "col-lg-3">
-				<a th:href = "@{/item/new/{tripId}(tripId=${trip.id})}" class = "btn btn-primary btn-sm mb-3"> Add Item</a>
-			</div>
-		</div>
-		<table class = "table table-striped table-bordered">
-			<thead class = "table-dark">
-				<tr>
-					<th> Name</th>
-					<th> Category</th>
-					<th> Actions </th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each = "item: ${trip.items}">
-					<td th:text = "${item.name}"></td>
-					<td th:text = "${item.category}"></td>
-
-					<td>
-						<a th:href = "@{/items/edit/{id}(id=${item.id})}"
-						 class = "btn btn-primary">Update</a>
-						
-						<a th:href = "@{/items/{id}(id=${item.id})}"
-						 class = "btn btn-danger">Delete</a> 
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<!-- End trip items list -->
-	
-	
-	<div class = "container">
+<!-- edit trip form -->
+<div class = "container">
 		<div class = "row">
 			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
 				<h1 class = "text-center"> Update Trip </h1>
@@ -88,5 +51,49 @@
 			</div>
 		</div>
 	</div>
+<!-- end edit trip form -->
+
+<!-- Trip items list -->
+	<div class ="container">
+		<div class = "row">
+			<h1> Trip Items </h1>
+		</div>
+		<!-- add trip items  -->
+		<div class = "row">
+			<div class = "col-lg-3">
+				<a th:href = "@{/item/new/{tripId}(tripId=${trip.id})}" class = "btn btn-primary btn-sm mb-3"> Add Item</a>
+			</div>
+		</div>
+		<table class = "table table-striped table-bordered">
+			<thead class = "table-dark">
+				<tr>
+					<th> Name</th>
+					<th> Details</th>
+					<th> Day of Trip</th>
+					<th> Category</th>
+					<th> Address</th>
+					<th> Actions </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each = "item: ${trip.items}">
+					<td th:text = "${item.name}"></td>
+					<td th:text = "${item.details}"></td>
+					<td th:text = "${item.dayOfTrip}"></td>
+					<td th:text = "${item.category}"></td>
+					<td th:text = "${item.address}"></td>
+					<td>
+						<a th:href = "@{/items/edit/{id}(id=${item.id})}"
+						 class = "btn btn-primary">Update</a>
+						
+						<a th:href = "@{/items/{id}(id=${item.id})}"
+						 class = "btn btn-danger">Delete</a> 
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- End trip items list -->
+	
 </body>
 </html>

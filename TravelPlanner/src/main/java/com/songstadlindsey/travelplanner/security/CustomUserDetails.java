@@ -15,7 +15,7 @@ public class CustomUserDetails implements UserDetails{
 	public CustomUserDetails(User user) {
 		this.user = user;
 	}
-	
+	// get list of users roles
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
         List<Role> roles = user.getRoles();
@@ -26,11 +26,11 @@ public class CustomUserDetails implements UserDetails{
         }
         return authorities;
 	}
-	
+	// get users full name
     public String getFullName() {
         return this.user.getFirstName() + " " + this.user.getLastName();
     }
-    
+    // get users id
     public Long getId() {
     	return this.user.getId();
     }

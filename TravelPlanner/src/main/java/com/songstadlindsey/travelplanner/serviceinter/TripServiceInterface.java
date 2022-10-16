@@ -10,4 +10,5 @@ public interface TripServiceInterface {
 	Trip getTripById(long id);
 	Trip updateTrip(Trip Trip);
 	void deleteTrip(long id);
+	List<Trip> findUserTrips(Long userId);
 }

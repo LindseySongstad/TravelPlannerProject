@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.songstadlindsey.travelplanner.model.Trip;
 
 public interface TripRepository extends JpaRepository<Trip, Long> {
-	  @Query(value = "SELECT * FROM trip WHERE user_id = ?1", nativeQuery = true)
+	// get trips by user Id  
+	@Query(value = "SELECT * FROM trip WHERE user_id = ?1", nativeQuery = true)
 	  List<Trip> findUserTrips(Long userId);
 }

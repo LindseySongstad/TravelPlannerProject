@@ -13,26 +13,71 @@
 
 <br /><br />
 <div class="container">
+<!--   header -->
     <div class="row">
         <h1 class="text-center"> Travel Planner </h1>
     </div>
-    <div class="row">
-		<h4 class="text-center"> Welcome <span sec:authentication="principal.fullName">Name</span>!</h4>	
-    </div>
 <!--     options -->
-    
-   	<div class = "col-lg-3">
-		<a th:href = "@{/users/edit/{id} (id=${user.getId})}" class = "btn btn-primary btn-sm mb-3"> Update your profile</a>
+<div class="row" style="margin: auto">
+<div class="card-group text-center" >
+ <!--   card -->
+	<div class="card bg-light mb-3" style="max-width: 18rem;">  	
+	  	<div class="card-header">Create a new Trip</div>
+ 	 	<div class="card-body">
+  		  	<h5 class="card-title">New</h5>
+  		  	<p class="card-text"></p>
+   		 	<a th:href = "@{/trip/new/{userId} (userId=${user.getId})}" class="btn btn-primary">New Trip</a>
+  		</div>
 	</div>
+<!--  end card -->
+ <!--   card -->
+	<div class="card bg-light mb-3" style="max-width: 18rem;">  	
+	  	<div class="card-header">My Trips</div>
+ 	 	<div class="card-body">
+  		  	<h5 class="card-title">View my Trips</h5>
+  		  	<p class="card-text"></p>
+   		 	<a th:href="@{/trips}" class="btn btn-primary">Trips</a>
+  		</div>
+	</div>
+<!--  end card -->
+ <!--   card -->
+	<div class="card bg-light mb-3" style="max-width: 18rem;">  	
+	  	<div class="card-header">My Items</div>
+ 	 	<div class="card-body">
+  		  	<h5 class="card-title">View items from all trips</h5>
+  		  	<p class="card-text"></p>
+   		 	<a th:href="@{items}" class="btn btn-primary">Items</a>
+  		</div>
+	</div>
+<!--  end card -->  
+ <!--   card -->
+	<div class="card bg-light mb-3" style="max-width: 18rem;">  	
+	  	<div class="card-header">Profile</div>
+ 	 	<div class="card-body">
+  		  	<h5 class="card-title">Update my profile</h5>
+  		  	<p class="card-text"></p>
+   		 	<a th:href="@{/users/edit/{id} (id=${user.getId})}" class="btn btn-primary">Profile</a>
+  		</div>
+	</div>
+<!--  end card --> 
+ </div>
+ </div>
+ <!--   end  options -->  
+</div>
+
+
+<!--    	<div class = "col-lg-3"> -->
+<!-- 		<a th:href = "@{/users/edit/{id} (id=${user.getId})}" class = "btn btn-primary btn-sm mb-3"> Update your profile</a> -->
+<!-- 	</div> -->
 	
-	<div class = "col-lg-3">
-		<a th:href = "@{/trip/new/{userId} (userId=${user.getId})}" class = "btn btn-primary btn-sm mb-3"> Add Trip</a>
-	</div>
+<!-- 	<div class = "col-lg-3"> -->
+<!-- 		<a th:href = "@{/trip/new/{userId} (userId=${user.getId})}" class = "btn btn-primary btn-sm mb-3"> Add Trip</a> -->
+<!-- 	</div> -->
 
 <!-- 		<span>[[${#request.remoteUser}]]</span>
  <span sec:authentication="principal.fullName">Name</span>
  	<input th:value = ${user.getId}>
  	<h4 class="text-center"> Welcome [[${user.getFirstName}]]!</h4>-->
-</div>
+
 </body>
 </html>

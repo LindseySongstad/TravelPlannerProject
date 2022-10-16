@@ -2,6 +2,7 @@ package com.songstadlindsey.travelplanner.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.songstadlindsey.travelplanner.model.Trip;
@@ -11,12 +12,8 @@ import com.songstadlindsey.travelplanner.serviceinter.TripServiceInterface;
 
 @Service
 public class TripService implements TripServiceInterface {
+	@Autowired
 	private TripRepository tripRepository;
-	
-	public TripService(TripRepository tripRepository) {
-		super();
-		this.tripRepository = tripRepository;
-	}
 	
 	@Override
 	public Trip saveTrip(Trip trip) {
@@ -42,7 +39,7 @@ public class TripService implements TripServiceInterface {
 	public void deleteTrip(long id) {
 		tripRepository.deleteById(id);
 	}
-	
+	@Override
 	public List<Trip> findUserTrips(Long userId){
 		return tripRepository.findUserTrips(userId);
 	};

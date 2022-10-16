@@ -1,5 +1,6 @@
 package com.songstadlindsey.travelplanner.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -14,34 +15,13 @@ import com.songstadlindsey.travelplanner.model.Trip;
 import com.songstadlindsey.travelplanner.model.User;
 import com.songstadlindsey.travelplanner.service.UserService;
 
+// controller for users
+
 @Controller
 public class UserController {
+	@Autowired
 	private UserService userService;
 	
-	public UserController(UserService userService) {
-		super();
-		this.userService = userService;
-	}
-	
-//	@GetMapping("/users")
-//	public String listUsers(Model model) {
-//		model.addAttribute("users", userService.getAllUsers());
-//		return "users";
-//	}
-	
-//	@GetMapping("/users/new")
-//	public String createUserForm(Model model) {
-//		User user = new User();
-//		model.addAttribute("user", user);
-//		return "create_user";
-//	}
-	
-//	replaced in auth controller
-//	@PostMapping("/users")
-//	public String saveUser(@ModelAttribute("user") User user) {
-//		userService.saveUser(user);
-//		return "redirect:/users";
-//	}
 	// edit user form
 	@GetMapping("/users/edit/{id}")
 	public String editUserForm(@PathVariable Long id, Model model) {
@@ -101,4 +81,25 @@ public class UserController {
 		userService.deleteUser(id);
 		return "redirect:/users";
 	}
+	
+//	replaced in auth controller
+	
+//	@GetMapping("/users")
+//	public String listUsers(Model model) {
+//		model.addAttribute("users", userService.getAllUsers());
+//		return "users";
+//	}
+	
+//	@GetMapping("/users/new")
+//	public String createUserForm(Model model) {
+//		User user = new User();
+//		model.addAttribute("user", user);
+//		return "create_user";
+//	}
+	
+//	@PostMapping("/users")
+//	public String saveUser(@ModelAttribute("user") User user) {
+//		userService.saveUser(user);
+//		return "redirect:/users";
+//	}
 }
