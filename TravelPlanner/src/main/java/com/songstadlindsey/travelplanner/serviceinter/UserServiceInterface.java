@@ -3,7 +3,7 @@ package com.songstadlindsey.travelplanner.serviceinter;
 import java.util.List;
 
 import com.songstadlindsey.travelplanner.dto.UserDto;
-import com.songstadlindsey.travelplanner.model.User;
+import com.songstadlindsey.travelplanner.entity.User;
 
 public interface UserServiceInterface {
 //	User saveUser(User User);

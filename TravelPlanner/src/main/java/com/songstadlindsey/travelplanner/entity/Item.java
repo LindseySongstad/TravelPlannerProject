@@ -1,4 +1,4 @@
-package com.songstadlindsey.travelplanner.model;
+package com.songstadlindsey.travelplanner.entity;
 
 import java.util.List;
 
@@ -16,8 +16,10 @@ import com.songstadlindsey.travelplanner.enums.Category;
 import com.songstadlindsey.travelplanner.enums.Priority;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "item")
 public class Item {
@@ -41,6 +43,15 @@ public class Item {
 	
 	@Column(name = "day")
 	private Integer dayOfTrip;
+
+	public Item(String name, Category category, String details, String address, Integer dayOfTrip) {
+		super();
+		this.name = name;
+		this.category = category;
+		this.details = details;
+		this.address = address;
+		this.dayOfTrip = dayOfTrip;
+	}
 	
 	
 //	@OneToOne

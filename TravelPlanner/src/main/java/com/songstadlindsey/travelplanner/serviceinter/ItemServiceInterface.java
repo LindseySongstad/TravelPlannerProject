@@ -2,7 +2,7 @@ package com.songstadlindsey.travelplanner.serviceinter;
 
 import java.util.List;
 
-import com.songstadlindsey.travelplanner.model.Item;
+import com.songstadlindsey.travelplanner.entity.Item;
 
 public interface ItemServiceInterface {
 	Item saveItem(Item Item);

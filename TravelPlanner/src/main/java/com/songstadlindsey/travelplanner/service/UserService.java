@@ -9,12 +9,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.songstadlindsey.travelplanner.dto.UserDto;
-import com.songstadlindsey.travelplanner.model.Role;
-import com.songstadlindsey.travelplanner.model.User;
+import com.songstadlindsey.travelplanner.entity.Role;
+import com.songstadlindsey.travelplanner.entity.User;
 import com.songstadlindsey.travelplanner.repository.RoleRepository;
 import com.songstadlindsey.travelplanner.repository.UserRepository;
 import com.songstadlindsey.travelplanner.serviceinter.UserServiceInterface;
-
 
 @Service
 public class UserService implements UserServiceInterface {
@@ -22,15 +21,8 @@ public class UserService implements UserServiceInterface {
 	private UserRepository userRepository;
 	@Autowired
 	private RoleRepository roleRepository;
+	@Autowired
     private PasswordEncoder passwordEncoder;
-	
-    public UserService(UserRepository userRepository,
-            RoleRepository roleRepository,
-            PasswordEncoder passwordEncoder) {
-    	this.userRepository = userRepository;
-    	this.roleRepository = roleRepository;
-    	this.passwordEncoder = passwordEncoder;
-    }
 	
     @Override
     public void saveUser(UserDto userDto) {

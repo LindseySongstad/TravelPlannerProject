@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<th:block th:replace="fragments/head :: head"></th:block>
+<meta charset="ISO-8859-1">
+<title>Trips</title>
+	<link rel="stylesheet" href="/styles/style.css">
+	<th:block th:replace="fragments/head :: head"></th:block>
 </head>
 <body>
 	<div th:replace="fragments/navbar::navbar"></div>
 
-
 	<div class="container text-center card mb-3 mt-3 border-dark bg-light">
-		<div class="row ">
+		<div class="row">
 			<div class="col">
 				<h1 th:text="${trip.name}"></h1>
 				
@@ -34,13 +34,13 @@
 
 				<div th:each="item: ${trip.items}">
 					<div th:if="${item.dayOfTrip} == ${day}">
-						<div class="card mb-3 text-white border-dark" style="max-width: 18rem;"
+						<div class="mycard mb-3" 
 							th:classappend="
-							(${item.category} == 'None' ? 'bg-light' : '') 
-							+ (${#strings.toString(item.category)} == 'Food' ? 'bg-primary' : '')
-							+ (${#strings.toString(item.category)} == 'Accommodations' ? 'bg-danger' : '')
-							+ (${#strings.toString(item.category)} == 'Attraction' ? 'bg-info' : '')
-							+ (${#strings.toString(item.category)} == 'Transportation' ? 'bg-success' : '')
+							(${#strings.toString(item.category)} == 'None' ? 'none' : '') 
+							+ (${#strings.toString(item.category)} == 'Food' ? 'food' : '')
+							+ (${#strings.toString(item.category)} == 'Accommodations' ? 'accommodations' : '')
+							+ (${#strings.toString(item.category)} == 'Attraction' ? 'attraction' : '')
+							+ (${#strings.toString(item.category)} == 'Transportation' ? 'transportation' : '')
 							">
 							<div class="card-header" th:text=${item.category}>Header</div>
 							<div class="card-body ">

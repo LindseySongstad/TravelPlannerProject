@@ -1,5 +1,6 @@
-package com.songstadlindsey.travelplanner.model;
+package com.songstadlindsey.travelplanner.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -29,8 +30,8 @@ public class User {
 	@ManyToMany(targetEntity = Trip.class)
 	private List<Trip> trips;
 	
-	@ManyToMany(targetEntity = Item.class)
-	private List<Item> possItems;
+//	@ManyToMany(targetEntity = Item.class)
+//	private List<Item> possItems;
 	
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(

@@ -1,4 +1,4 @@
-package com.songstadlindsey.travelplanner.model;
+package com.songstadlindsey.travelplanner.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.songstadlindsey.travelplanner.model.Item;
-import com.songstadlindsey.travelplanner.model.Trip;
-import com.songstadlindsey.travelplanner.model.User;
+import com.songstadlindsey.travelplanner.entity.Item;
+import com.songstadlindsey.travelplanner.entity.Trip;
+import com.songstadlindsey.travelplanner.entity.User;
 import com.songstadlindsey.travelplanner.security.CustomUserDetails;
 import com.songstadlindsey.travelplanner.service.ItemService;
 import com.songstadlindsey.travelplanner.service.TripService;
@@ -22,6 +22,8 @@ import com.songstadlindsey.travelplanner.service.UserService;
 
 @Controller
 public class TripController {
+	private static final String REDIRECT = "redirect:";
+	
 	@Autowired
 	private TripService tripService;
 	@Autowired
@@ -58,11 +60,12 @@ public class TripController {
 		Trip existingTrip = tripService.getTripById(id);
 		existingTrip.setId(id);
 		existingTrip.setName(trip.getName());
+		existingTrip.setDescription(trip.getDescription());
 		existingTrip.setTripLength(trip.getTripLength());
 
 		// save updated trip object
 		tripService.updateTrip(existingTrip);
-		return "redirect:/trips";		
+		return REDIRECT +"/trips";		
 	}
 	
 	// add user trip form
@@ -82,13 +85,13 @@ public class TripController {
 			Model model) {
 		trip.setUserId(userId);
 		tripService.saveTrip(trip);
-		return "redirect:/trips";
+		return REDIRECT +"/trips";
 	}
 	// delete trip
 	@GetMapping("/trips/{id}")
 	public String deleteTrip(@PathVariable Long id) {
 		tripService.deleteTrip(id);
-		return "redirect:/trips";
+		return REDIRECT +"/trips";
 	}
 	
 	// without user

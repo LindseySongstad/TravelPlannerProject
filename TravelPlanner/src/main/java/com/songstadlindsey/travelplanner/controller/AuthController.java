@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -14,24 +15,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.songstadlindsey.travelplanner.dto.UserDto;
-import com.songstadlindsey.travelplanner.model.User;
+import com.songstadlindsey.travelplanner.entity.User;
 import com.songstadlindsey.travelplanner.service.UserService;
 
 // controller for login and registration
-
 @Controller
 public class AuthController {
 
-    private UserService userService;
+	private static final String REDIRECT = "redirect:";
+	@Autowired
+	private UserService userService;
 
-    public AuthController(UserService userService) {
-        this.userService = userService;
-    }
-    @GetMapping("/error")
-    public String error() {
-    	return "error";
-    }
-    
     // handler method to handle home page request
     @GetMapping("/index")
     public String home(){
@@ -43,7 +37,8 @@ public class AuthController {
     public String login(){
         return "login";
     }
-    
+    // to do
+    // check if user exists, use anonymous user otherwise
     @GetMapping("/user_home")
     public String userhome(@AuthenticationPrincipal UserDetails userDetails,
             Model model){
@@ -80,7 +75,7 @@ public class AuthController {
         }
 
         userService.saveUser(userDto);
-        return "redirect:/login?success";
+        return REDIRECT +"/login?success";
     }
 
     // handler method to handle list of users
@@ -89,6 +84,11 @@ public class AuthController {
         List<UserDto> users = userService.findAllUsers();
         model.addAttribute("users", users);
         return "users";
+    }
+    // Error page
+    @GetMapping("/error")
+    public String error() {
+    	return "error";
     }
     
 }

@@ -10,15 +10,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.songstadlindsey.travelplanner.model.Item;
-import com.songstadlindsey.travelplanner.model.Trip;
-import com.songstadlindsey.travelplanner.model.User;
+import com.songstadlindsey.travelplanner.entity.Item;
+import com.songstadlindsey.travelplanner.entity.Trip;
+import com.songstadlindsey.travelplanner.entity.User;
 import com.songstadlindsey.travelplanner.service.UserService;
 
 // controller for users
 
 @Controller
 public class UserController {
+	private static final String REDIRECT = "redirect:";
+	
 	@Autowired
 	private UserService userService;
 	
@@ -44,7 +46,7 @@ public class UserController {
 		
 		// save updated user object
 		userService.updateUser(existingUser);
-		return "redirect:/users";		
+		return REDIRECT +"/users";		
 	}
 	// add trip form
 	@GetMapping("/user/addtrip/{id}")
@@ -72,14 +74,14 @@ public class UserController {
 		currentUser.setId(id);
 		currentUser.addTrip(trip);
 		userService.updateUser(currentUser);
-		return "redirect:/items";
+		return REDIRECT +"/items";
 	}
 	
 	// delete user
 	@GetMapping("/users/{id}")
 	public String deleteUser(@PathVariable Long id) {
 		userService.deleteUser(id);
-		return "redirect:/users";
+		return REDIRECT +"/users";
 	}
 	
 //	replaced in auth controller

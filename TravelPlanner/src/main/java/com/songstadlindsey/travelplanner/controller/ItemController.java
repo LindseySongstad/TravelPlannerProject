@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.songstadlindsey.travelplanner.model.Item;
-import com.songstadlindsey.travelplanner.model.Trip;
+import com.songstadlindsey.travelplanner.entity.Item;
+import com.songstadlindsey.travelplanner.entity.Trip;
 import com.songstadlindsey.travelplanner.security.CustomUserDetails;
 import com.songstadlindsey.travelplanner.service.ItemService;
 import com.songstadlindsey.travelplanner.service.TripService;
@@ -19,6 +19,8 @@ import com.songstadlindsey.travelplanner.service.TripService;
 
 @Controller
 public class ItemController {
+	private static final String REDIRECT = "redirect:";
+	
 	@Autowired
 	private ItemService itemService;
 	@Autowired
@@ -43,7 +45,7 @@ public class ItemController {
 		existingTrip.setId(tripId);
 		existingTrip.addTripItem(item);
 		tripService.updateTrip(existingTrip);
-		return "redirect:/trips/edit/{tripId}";
+		return REDIRECT +"/trips/edit/{tripId}";
 	}
 	// list user items
 	@GetMapping("/items")
@@ -76,13 +78,13 @@ public class ItemController {
 		
 		// save updated item object
 		itemService.updateItem(existingItem);
-		return "redirect:/trips";		
+		return REDIRECT +"/trips";		
 	}
 	// delete item
 	@GetMapping("/items/{id}")
 	public String deleteItem(@PathVariable Long id) {
 		itemService.deleteItem(id);
-		return "redirect:/items";
+		return REDIRECT +"/items";
 	}
 	
 	

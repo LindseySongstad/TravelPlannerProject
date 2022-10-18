@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.songstadlindsey.travelplanner.model.Item;
+import com.songstadlindsey.travelplanner.entity.Item;
 import com.songstadlindsey.travelplanner.repository.ItemRepository;
 import com.songstadlindsey.travelplanner.serviceinter.ItemServiceInterface;
 

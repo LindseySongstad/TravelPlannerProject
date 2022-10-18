@@ -2,7 +2,7 @@ package com.songstadlindsey.travelplanner.serviceinter;
 
 import java.util.List;
 
-import com.songstadlindsey.travelplanner.model.Trip;
+import com.songstadlindsey.travelplanner.entity.Trip;
 
 public interface TripServiceInterface {
 	Trip saveTrip(Trip Trip);
