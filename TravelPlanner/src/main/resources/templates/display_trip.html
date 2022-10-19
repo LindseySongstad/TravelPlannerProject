@@ -8,30 +8,26 @@
 </head>
 <body>
 	<div th:replace="fragments/navbar::navbar"></div>
-
+<!-- 	trip header -->
 	<div class="container text-center card mb-3 mt-3 border-dark bg-light">
 		<div class="row">
 			<div class="col">
-				<h1 th:text="${trip.name}"></h1>
-				
+				<h1 th:text="${trip.name}"></h1>	
 			</div>
-<!-- 			<div class="col">
-				<a th:href="@{/trips/edit/{id}(id=${trip.id})}"
-					class="btn btn-primary">Update Trip</a>
-			</div> -->
 		</div>
 	</div>
+	
 	<div class="container">
 		<div class="row justify-content-evenly">
-			<div class="col"
-				th:each="day:${#numbers.sequence(1,trip.tripLength)}">
+			<div class="col" th:each="day:${#numbers.sequence(1,trip.tripLength)}">
+				<!-- day header -->
 				<div class="card mb-3 border-dark bg-light text-center"
 					style="max-width: 18rem;">
 					<h5>
 						Day <span th:text="${day}">dayNumber</span>
 					</h5>
 				</div>
-
+<!-- 				Item list for each day -->
 				<div th:each="item: ${trip.items}">
 					<div th:if="${item.dayOfTrip} == ${day}">
 						<div class="mycard mb-3" 
@@ -48,6 +44,7 @@
 									title</h5>
 								<p class="card-text" th:text=${item.details}></p>
 								<p class="card-text" th:text=${item.address}></p>
+								<a th:href = "@{/items/edit/{id}(id=${item.id})}">Edit Item</a>
 							</div>
 						</div>
 					</div>

@@ -32,9 +32,8 @@ class TravelPlannerApplicationTests {
 	//test get item by id from Item Service
 	@Test 
 	void testgetItemById() {
-		Item expected = new Item( "testItem", Category.None, "testDetails", "testAddress", 7);
+		Item expected = new Item((long)11, "testItem", Category.None, "testDetails", "testAddress", 7);
 		expected.setId(294);
-		expected.setUserId(11);
 		Item actual = itemService.getItemById(294);
 		assertEquals(expected, actual);
 	}

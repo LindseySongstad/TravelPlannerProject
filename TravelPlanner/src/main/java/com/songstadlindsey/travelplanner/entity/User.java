@@ -29,10 +29,7 @@ public class User implements Serializable{
 	
 	@ManyToMany(targetEntity = Trip.class)
 	private List<Trip> trips;
-	
-//	@ManyToMany(targetEntity = Item.class)
-//	private List<Item> possItems;
-	
+
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
             name="users_roles",
@@ -46,4 +43,8 @@ public class User implements Serializable{
     public User() {
     	this.trips = new ArrayList<Trip>();
     }
+	
+//	@ManyToMany(targetEntity = Item.class)
+//	private List<Item> possItems;
+	
 }

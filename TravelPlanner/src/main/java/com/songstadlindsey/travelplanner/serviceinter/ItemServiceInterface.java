@@ -11,4 +11,6 @@ public interface ItemServiceInterface {
 	Item updateItem(Item Item);
 	void deleteItem(long id);
 	List<Item> findUserItems(Long userId);
+	List<Item> findTripItems(Long userId);
+	
 }

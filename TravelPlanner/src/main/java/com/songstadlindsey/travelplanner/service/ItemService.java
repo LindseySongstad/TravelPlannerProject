@@ -42,5 +42,10 @@ public class ItemService implements ItemServiceInterface {
 	@Override
 	public List<Item> findUserItems(Long userId){
 		return itemRepository.findUserItems(userId);
+	}
+
+	@Override
+	public List<Item> findTripItems(Long userId) {
+		return itemRepository.findTripItems(userId);
 	};
 }

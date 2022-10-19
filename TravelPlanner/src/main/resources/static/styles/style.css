@@ -3,11 +3,14 @@
 html{
 
 }
+
+.hidden {
+    display: none;
+}
 .mycard{
 	border: 1px solid black;
   	border-radius: 2px;
 }
-
 
 .none{
 	background-color:rgba(83, 83, 83, 0.3);

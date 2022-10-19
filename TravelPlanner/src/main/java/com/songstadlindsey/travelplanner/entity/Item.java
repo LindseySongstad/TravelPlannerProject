@@ -44,8 +44,9 @@ public class Item {
 	@Column(name = "day")
 	private Integer dayOfTrip;
 
-	public Item(String name, Category category, String details, String address, Integer dayOfTrip) {
+	public Item(Long userId, String name, Category category, String details, String address, Integer dayOfTrip) {
 		super();
+		this.userId = userId;
 		this.name = name;
 		this.category = category;
 		this.details = details;
